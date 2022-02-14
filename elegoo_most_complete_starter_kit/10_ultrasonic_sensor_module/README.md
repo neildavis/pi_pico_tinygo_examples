@@ -4,6 +4,11 @@ This example demonstrates the use of a [HC-SR04](https://www.letscontrolit.com/w
 
 The HC-SR04 module provides a range of 2cm-400cm non-contact measurement, with an aaccuracy that can reach as low as 3mm
 
+The [TinyGo Drivers](https://pkg.go.dev/tinygo.org/x/drivers) project already includes a driver for the HC-SR04, so we'll
+use that.
+
+If you're curious how this works internally, check out the [HC-SR04 datasheet](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf) and inspect the [driver code](https://github.com/tinygo-org/drivers/blob/release/hcsr04/hcsr04.go).
+
 ## **IMPORTANT:** Voltage Levels ##
 
 As descibed in the [linked page](https://www.letscontrolit.com/wiki/index.php/HC-SR04) above, the HC-SR04 is designed for 5V circuits. The Pi Pico runs on 3.3V so cannot be used in the same congfiguration as e.g. with a 5V Arduino Uno. 
@@ -46,7 +51,7 @@ With all that said, here is how to connect the Pico, RGB LED and HC-SR04:
 | Pico Pin (physical pin#) | HC-SR04 | RGB LED|
 |-|-|-|
 | VBUS (40) | VCC |
-| Ground (3,8,13,18,23,28,33,3838) | GND | Cathode |
+| Ground (3,8,13,18,23,28,33,38) | GND | Cathode |
 | GP0 (1) | | Red |
 | GP2 (4) | | Green |
 | GP4 (6) | | Blue |

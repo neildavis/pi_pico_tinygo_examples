@@ -4,7 +4,7 @@ import (
 	"machine"
 	"time"
 
-	"github.com/neildavis/tinygo_modules/tone"
+	"github.com/neildavis/tinygo_modules/passivebuzzer"
 	"tinygo.org/x/drivers/keypad4x4"
 )
 
@@ -24,16 +24,16 @@ var (
 	// Matching PWM group for passive buzzer pin
 	pwmGroup = machine.PWM6
 	// High level device drivers for keypad and passive buzzer
-	keypad     keypad4x4.Device
-	toneDevice tone.ToneDevice
+	keypad keypad4x4.Device
+	buzzer passivebuzzer.Device
 	// 4x4 matrix of tones to play corresponding to keypad buttons
-	tones = [4][4]tone.Note{
-		{tone.NOTE_C4, tone.NOTE_D4, tone.NOTE_E4, tone.NOTE_F4},
-		{tone.NOTE_G4, tone.NOTE_A4, tone.NOTE_B4, tone.NOTE_C5},
-		{tone.NOTE_D5, tone.NOTE_E5, tone.NOTE_F5, tone.NOTE_G5},
-		{tone.NOTE_A5, tone.NOTE_B5, tone.NOTE_C6, tone.NOTE_D6},
+	tones = [4][4]passivebuzzer.Note{
+		{passivebuzzer.NOTE_C4, passivebuzzer.NOTE_D4, passivebuzzer.NOTE_E4, passivebuzzer.NOTE_F4},
+		{passivebuzzer.NOTE_G4, passivebuzzer.NOTE_A4, passivebuzzer.NOTE_B4, passivebuzzer.NOTE_C5},
+		{passivebuzzer.NOTE_D5, passivebuzzer.NOTE_E5, passivebuzzer.NOTE_F5, passivebuzzer.NOTE_G5},
+		{passivebuzzer.NOTE_A5, passivebuzzer.NOTE_B5, passivebuzzer.NOTE_C6, passivebuzzer.NOTE_D6},
 	}
-	// Duration of tone to play
+	// Duration of passivebuzzer to play
 	duration = time.Millisecond * 500
 )
 
@@ -42,17 +42,17 @@ func setupPins() {
 	keypad = keypad4x4.NewDevice(pinKPR1, pinKPR2, pinKPR3, pinKPR4,
 		pinKPC1, pinKPC2, pinKPC3, pinKPC4)
 	keypad.Configure()
-	// Configure passive buzzer as tone device
-	toneDevice = tone.NewDevice(pinBuzzer, pwmGroup)
+	// Configure passive buzzer as passivebuzzer device
+	buzzer = passivebuzzer.New(pinBuzzer, pwmGroup)
 }
 
 func main() {
 	setupPins()
-	// Loop forever reading a keypress from the pad and playing the matching tone
+	// Loop forever reading a keypress from the pad and playing the matching passivebuzzer
 	for {
 		row, col := keypad.GetIndices()
 		if row > -1 && col > -1 {
-			toneDevice.Tone(tones[row][col], duration)
+			buzzer.Note(tones[row][col], duration)
 		}
 	}
 }

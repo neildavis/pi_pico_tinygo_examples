@@ -1,11 +1,6 @@
-package tone
+package passivebuzzer
 
-import (
-	"machine"
-	"time"
-)
-
-// Note type is frequency
+// Note type is a frequency as a uint64
 type Note uint64
 
 // Frequencies for musical notes
@@ -100,44 +95,3 @@ var (
 	NOTE_D8  Note = 4699
 	NOTE_DS8 Note = 4978
 )
-
-// Since machine.pwmGroup is not exported, we create our own type to allow it to be passed around & stored
-type TonePWM interface {
-	Configure(config machine.PWMConfig) error
-	Channel(pin machine.Pin) (channel uint8, err error)
-	Set(channel uint8, value uint32)
-	Top() uint32
-}
-
-// Public API for the tone device
-type ToneDevice interface {
-	Tone(note Note, duration time.Duration)
-	Configure()
-}
-
-// Internal device type. Conforms to the ToneDevice interface
-type device struct {
-	pin machine.Pin
-	pwm TonePWM
-}
-
-// C'tor
-func NewDevice(pin machine.Pin, pwm TonePWM) ToneDevice {
-	return &device{pin, pwm}
-}
-
-// Configure device pins
-func (device *device) Configure() {
-	// Configure the passive buzzer for PWM output
-	device.pin.Configure(machine.PinConfig{Mode: machine.PinPWM})
-
-}
-
-// Tone performs a 50% duty cycle PWM signal at the given frequency for the given duration
-func (device *device) Tone(note Note, duration time.Duration) {
-	device.pwm.Configure(machine.PWMConfig{Period: 1e9 / uint64(note)})
-	pwmChan, _ := device.pwm.Channel(device.pin)
-	device.pwm.Set(pwmChan, device.pwm.Top()/2)
-	time.Sleep(duration)
-	device.pwm.Set(pwmChan, 0)
-}

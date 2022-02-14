@@ -3,22 +3,26 @@ package main
 import (
 	"machine"
 	"time"
+
+	"github.com/neildavis/tinygo_modules/tone"
 )
 
 var (
 	// Notes in the melody
-	melody = []int{NOTE_C5, NOTE_D5, NOTE_E5, NOTE_F5, NOTE_G5, NOTE_A5, NOTE_B5, NOTE_C6}
+	melody = []tone.Note{tone.NOTE_C5, tone.NOTE_D5, tone.NOTE_E5, tone.NOTE_F5, tone.NOTE_G5, tone.NOTE_A5, tone.NOTE_B5, tone.NOTE_C6}
 	// duration of each note
 	duration = time.Millisecond * 500
 	// Pin for passive buzzer pwm
 	pinBuzzer = machine.GP12
 	// PWM Group for buzzer
 	pwmGroup = machine.PWM6
+	// Tone device
+	toneDevice tone.ToneDevice
 )
 
 func setupPins() {
-	// Configure the passive buzzer for PWM output
-	pinBuzzer.Configure(machine.PinConfig{Mode: machine.PinPWM})
+	toneDevice = tone.NewDevice(pinBuzzer, pwmGroup)
+	toneDevice.Configure()
 }
 
 func main() {
@@ -27,7 +31,7 @@ func main() {
 	for {
 		// Play each note in turn
 		for _, note := range melody {
-			tone(note, duration)
+			toneDevice.Tone(note, duration)
 		}
 		time.Sleep(time.Second * 10)
 	}

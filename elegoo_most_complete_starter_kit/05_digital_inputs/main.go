@@ -7,10 +7,10 @@ import (
 
 var (
 	// Input buttons
-	pinButtonOn  = machine.GPIO9
-	pinButtonOff = machine.GPIO8
+	pinButtonOn  = machine.GP9
+	pinButtonOff = machine.GP8
 	// Output LED
-	pinLED = machine.GPIO5
+	pinLED = machine.GP5
 )
 
 func setupPins() {

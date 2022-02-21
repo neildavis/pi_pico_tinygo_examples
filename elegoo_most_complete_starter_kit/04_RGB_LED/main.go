@@ -6,11 +6,11 @@ import (
 )
 
 var (
-	pinRed   = machine.GPIO0
+	pinRed   = machine.GP0
 	pwmRed   = machine.PWM0
-	pinGreen = machine.GPIO2
+	pinGreen = machine.GP2
 	pwmGreen = machine.PWM1
-	pinBlue  = machine.GPIO4
+	pinBlue  = machine.GP4
 	pwmBlue  = machine.PWM2
 )
 

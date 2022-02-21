@@ -20,7 +20,7 @@ As with the Servo example (lesson 9) we can workaround this to some extent, by c
 
 Fortunately there is a simple solution using a minimal amount of extra circuitry - two resistors in series - to create a [voltage divider](https://learn.sparkfun.com/tutorials/voltage-dividers) which can lower the 5V from the HC-SR04's 'echo' pin to the 3.3V required by the Pico. I highly recommend you read this article and understand the concepts before assembling this project as I will **not** be responsible if you fry your pico board with 5V!
 
-## Measurement Feedback ##
+## Feedback ##
 The original Arduino based version of this lesson simply printed out the measured distance value via the serial bus which could be seen in the Arduino IDE serial monitor. However, this isn't possible on the Pico with a simple USB connection (by default the UART is connected to GPIO rather than USB CDC)
 
 Whilst there are solutions to this using e.g. another Pico as a 'Pico Probe', I decided to modify the example to drive an RGB LED colour based on the measured distance:
@@ -46,7 +46,9 @@ Feeding these values into the voltage divider equation:
 
 leads to a divided voltage (Vout) = **3.31V** which is well within tolerance for the Pico.
 
-With all that said, here is how to connect the Pico, RGB LED and HC-SR04:
+## Connections ##
+
+With the above in mind, here is how to connect the Pico, RGB LED and HC-SR04:
 
 | Pico Pin (physical pin#) | HC-SR04 | RGB LED|
 |-|-|-|

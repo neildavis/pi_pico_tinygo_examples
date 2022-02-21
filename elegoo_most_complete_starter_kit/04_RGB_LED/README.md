@@ -8,7 +8,7 @@ Connect The RGB LED legs (via suitable protective resistors - e.g. 220 ohms - fo
 
 | LED Leg | GPIO Pin | Physical Pin # |
 |-|-|-|
-| Red | GPIO0 | 1 |
-| Green | GPIO2 | 4 |
-| Blue | GPIO4 | 6 |
+| Red | GP0 | 1 |
+| Green | GP2 | 4 |
+| Blue | GP4 | 6 |
 | Cathode | Ground | 3,8,13,18,23,28,33,38 |

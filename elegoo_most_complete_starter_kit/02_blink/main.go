@@ -5,10 +5,18 @@ import (
 	"time"
 )
 
-func main() {
+var (
+	pinLED = machine.LED
+)
+
+func setupPins() {
 	// Configure the built in LED as a digital output
-	pinLED := machine.LED
 	pinLED.Configure(machine.PinConfig{Mode: machine.PinOutput})
+}
+
+func main() {
+	// Setup
+	setupPins()
 	// Now loop forever blinking the LED
 	for {
 		pinLED.High()

@@ -17,9 +17,9 @@ Unlike lesson 10 (HC-SR04 ultrasonic sensor) we cannot even use a voltage divide
 5V to 3.3V since the pin is used for both sending data TO **and** receiving data FROM the device.
 The voltage divider works in only one direction.
 
-A potential solution may be to connect the DATA pin twice, once directly and the other via a voltage divider, and
-use diodes to ensure the current takes the correct path for reading from & writing to the device.
-However this has not been tested and the connections shown below use 3.3V for both power & signalling.
+A solution may be to use a bi-directional logic level converter between the Pico and the DHT11.
+Unfortunately, the Elegoo kit does not contain such a component, sothe connections shown below
+use 3.3V for both power & signalling.
 
 ## Feedback ##
 

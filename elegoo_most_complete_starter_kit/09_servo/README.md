@@ -27,6 +27,7 @@ use that.
 
 If you're curious exactly how this works, inspect the [driver code](https://github.com/tinygo-org/drivers/blob/release/servo/servo.go).
 
+## Connections ##
 
 The servo has three wires and should be connected as follows:
 

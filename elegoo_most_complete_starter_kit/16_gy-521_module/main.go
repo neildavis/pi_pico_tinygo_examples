@@ -73,10 +73,6 @@ func setupPins() {
 	}
 }
 
-func setDisplayIntensity(intensity uint8) {
-	matrix.WriteCommand(max72xx.REG_INTENSITY, intensity)
-}
-
 func clearDisplay() {
 	for row := 0; row < NUM_ROWS; row++ {
 		setRow(row, 0)
@@ -104,7 +100,7 @@ func drawBall(x, y int, i byte) {
 	rowPattern := byte(0b00000011) << y
 	setRow(x, rowPattern)
 	setRow(x+1, rowPattern)
-	setDisplayIntensity(i)
+	matrix.SetIntensity(i)
 }
 
 func mapAccelerationToPositionAndIntensity(ax, ay, az int32) (x, y int, i byte) {
@@ -133,7 +129,7 @@ func mapRotationToRGB(rx, ry, rz int32) [3]uint32 { // [r,g,b]
 
 func main() {
 	setupPins()
-	setDisplayIntensity(8)
+	matrix.SetIntensity(8)
 	for {
 		clearDisplay()
 		// Read Acceleration in µg (micro-gravity)

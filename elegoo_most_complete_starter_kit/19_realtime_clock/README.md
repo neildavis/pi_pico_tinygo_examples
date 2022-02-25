@@ -18,7 +18,7 @@ between the DS1307 & the Pico, as well as powering it from the *VBUS* (5V) pin i
 
 ## Driver Support ##
 
-The [TinyGo drivers](https://github.com/tinygo-org/drivers) project contains driver for both the
+The [TinyGo drivers](https://github.com/tinygo-org/drivers) project contains drivers for both the
 [DS1307](https://github.com/tinygo-org/drivers/tree/release/ds1307) and the
 [DS3231](https://github.com/tinygo-org/drivers/tree/release/ds3231).
 

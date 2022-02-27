@@ -1,0 +1,24 @@
+package main
+
+const (
+	SEG_A  = 0b10000000
+	SEG_B  = 0b01000000
+	SEG_C  = 0b00100000
+	SEG_D  = 0b00010000
+	SEG_E  = 0b00001000
+	SEG_F  = 0b00000100
+	SEG_G  = 0b00000010
+	SEG_DP = 0b00000001
+	//
+	DIG_0  = SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F
+	DIG_1  = SEG_B | SEG_C
+	DIG_2  = SEG_A | SEG_B | SEG_D | SEG_E | SEG_G
+	DIG_3  = SEG_A | SEG_B | SEG_C | SEG_D | SEG_G
+	DIG_4  = SEG_B | SEG_C | SEG_F | SEG_G
+	DIG_5  = SEG_A | SEG_C | SEG_D | SEG_F | SEG_G
+	DIG_6  = SEG_A | SEG_C | SEG_D | SEG_E | SEG_F | SEG_G
+	DIG_7  = SEG_A | SEG_B | SEG_C
+	DIG_8  = SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F | SEG_G
+	DIG_9  = SEG_A | SEG_B | SEG_C | SEG_D | SEG_F | SEG_G
+	DEC_PT = SEG_DP
+)

@@ -1,6 +1,6 @@
 # Lesson 29: DC Motors #
 
-This example demostrates how to use a [L293D](https://www.ti.com/lit/ds/symlink/l293d.pdf)
+This example demonstrates how to use a [L293D](https://www.ti.com/lit/ds/symlink/l293d.pdf)
 '*Quadruple Half-H Driver*' IC to drive a DC motor in either direction with variable speed.
 
 ## **IMPORTANT**: DC Motor Power Supply ##

@@ -1,7 +1,7 @@
 # Lesson 28: Four Digital Seven Segment Display #
 
 This example expands upon the previous lesson to utilize a
-[*5461AS*](http://www.datasheetcafe.com/kyx-5461as-datasheet-7-segment-arduino/) 
+[*5461AS*](http://www.datasheetcafe.com/kyx-5461as-datasheet-7-segment-arduino/)
 'four seven segment' display to show some scrolling text.
 
 ## Common Cathodes ##
@@ -30,11 +30,11 @@ With the *5461AS* things work a little differently:
 
 Note: For brevity of this table I have not split the 220Ω resistors R1-R3 into separate columns
 for the positive (+) and negative (-) terminals. The polarity doesn't matter anyway.
-Just be aware that the resistor *Rn* is **always** connected in ***series*** **between** the 
+Just be aware that the resistor *Rn* is **always** connected in ***series*** **between** the
 *5461AS* (4x &-Seg display) pins *'DIG n'* and the Pico.
 (i.e) **do not connect in *parallel* directly beween *5461AS* and the *Pico***.
 
-| Pico (pin #) | 220Ω Resistors Rn | 74HC595 (pin #) | 4x 7-Seg Display (5461AS - pin #) | 
+| Pico (pin #) | 220Ω Resistors Rn | 74HC595 (pin #) | 4x 7-Seg Display (5461AS - pin #) |
 |-|-|-|-|
 | GP6 (9) | R1 || DIG 1 (12) |
 | GP7 (10)| R2 || DIG 2 (9) |

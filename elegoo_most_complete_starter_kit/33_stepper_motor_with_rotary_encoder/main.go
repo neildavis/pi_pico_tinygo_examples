@@ -14,8 +14,8 @@ var (
 	pinRotClk = machine.GP5
 	// Stepper Motor Pins
 	pinStepper1 = machine.GP6
-	pinStepper2 = machine.GP7
-	pinStepper3 = machine.GP8
+	pinStepper2 = machine.GP8
+	pinStepper3 = machine.GP7
 	pinStepper4 = machine.GP9
 )
 
@@ -39,7 +39,10 @@ func stepperQueue(stepsQ chan int) {
 	// We also need the rotary encoder switch in this go routine to process it
 	pinRotSw.Configure(machine.PinConfig{Mode: machine.PinInputPullup})
 	// Setup Stepper Motor
-	stepper := easystepper.NewWithMode(pinStepper1, pinStepper3, pinStepper2, pinStepper4, NUM_STEPS, STEP_RPM, easystepper.EightStepMode)
+	stepperConfig := easystepper.DeviceConfig{
+		Pin1: pinStepper1, Pin2: pinStepper2, Pin3: pinStepper3, Pin4: pinStepper4,
+		StepCount: NUM_STEPS, RPM: STEP_RPM, Mode: easystepper.ModeEight}
+	stepper, _ := easystepper.New(stepperConfig)
 	stepper.Configure()
 	stepperPos := 0
 	resetStepper := false

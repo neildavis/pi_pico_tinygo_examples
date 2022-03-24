@@ -31,7 +31,7 @@ Connect the passive buzzer and IR receiver to the Pico as follows:
 
 | Pin (physical pin#) | IR Receiver | Passive Buzzer |
 |-|-|-|
-| GP12 (16) | | + |
-| GP26 (31) | Y | |
+| GP15 (20) | | + |
+| GP3 (5) | Y | |
 | 3V3(OUT) (36) | R | |
 | GND (3,8,13,18,23,28,33,38) | G| - |

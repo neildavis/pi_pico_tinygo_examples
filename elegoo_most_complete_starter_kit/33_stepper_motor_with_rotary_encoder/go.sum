@@ -5,8 +5,8 @@ github.com/google/go-cmp v0.5.2/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/
 github.com/kr/pretty v0.2.1/go.mod h1:ipq/a2n7PKx3OHsz4KJII5eveXtPO4qwEXGdVfWzfnI=
 github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
 github.com/kr/text v0.1.0/go.mod h1:4Jbv+DJW3UT/LiOwJeYQe1efqtUx/iVham/4vfdArNI=
-github.com/neildavis/drivers v0.19.1-0.20220303120938-41350e47094f h1:dJeOeEykTVBV89dwz/XyF3IJKRPGikTSMSyajzbGaxQ=
-github.com/neildavis/drivers v0.19.1-0.20220303120938-41350e47094f/go.mod h1:uJD/l1qWzxzLx+vcxaW0eY464N5RAgFi1zTVzASFdqI=
+github.com/neildavis/drivers v0.19.1-0.20220324191050-33e730045560 h1:OsEACCmRhQkRrOxIG3MpWhQ5bw9wGxba5SIdpohbdwA=
+github.com/neildavis/drivers v0.19.1-0.20220324191050-33e730045560/go.mod h1:uJD/l1qWzxzLx+vcxaW0eY464N5RAgFi1zTVzASFdqI=
 github.com/valyala/fastjson v1.6.3/go.mod h1:CLCAqky6SMuOcxStkYQvblddUtoRxhYMGLrsQns1aXY=
 golang.org/x/net v0.0.0-20210614182718-04defd469f4e/go.mod h1:9nx3DQGgdP8bBQD5qxJ1jj9UTztislL4KSBs9R2vV5Y=
 golang.org/x/sys v0.0.0-20201119102817-f84b799fce68/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=

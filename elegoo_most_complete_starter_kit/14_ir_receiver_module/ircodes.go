@@ -2,7 +2,7 @@ package main
 
 import "github.com/neildavis/tinygo_modules/passivebuzzer"
 
-var irCmdButtons = map[uint8]passivebuzzer.Note{
+var irCmdButtons = map[uint16]passivebuzzer.Note{
 	0xA2: passivebuzzer.NOTE_C4,
 	0xE2: passivebuzzer.NOTE_D5,
 	0x62: passivebuzzer.NOTE_E4,

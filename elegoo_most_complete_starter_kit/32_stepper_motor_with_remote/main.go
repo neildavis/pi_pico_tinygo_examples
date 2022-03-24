@@ -10,14 +10,14 @@ import (
 
 var (
 	// IR Receiver
-	pinIROut = machine.GP3
-	ir       irremote.IRReceiverDevice
+	pinIRIn = machine.GP3
+	ir      irremote.ReceiverDevice
 	// Stepper Motor
 	pinStepper1 = machine.GP6
-	pinStepper2 = machine.GP7
-	pinStepper3 = machine.GP8
+	pinStepper2 = machine.GP8
+	pinStepper3 = machine.GP7
 	pinStepper4 = machine.GP9
-	stepper     easystepper.Device
+	stepper     *easystepper.Device
 	// A channel of steps to move
 	ch chan int32
 )
@@ -29,16 +29,25 @@ const (
 
 func setupPins() {
 	// Setup IR receiver
-	ir = irremote.New(pinIROut)
+	ir = irremote.NewReceiver(pinIRIn)
 	ir.Configure()
 	// Setup Stepper Motor
-	stepper = easystepper.NewWithMode(pinStepper1, pinStepper3, pinStepper2, pinStepper4, NUM_STEPS, STEP_RPM, easystepper.EightStepMode)
+	stepperConfig := easystepper.DeviceConfig{
+		Pin1: pinStepper1, Pin2: pinStepper2, Pin3: pinStepper3, Pin4: pinStepper4,
+		StepCount: NUM_STEPS, RPM: STEP_RPM, Mode: easystepper.ModeEight,
+	}
+
+	stepper, _ = easystepper.New(stepperConfig)
 	stepper.Configure()
 }
 
 // Handle a callback from the IR receiver
-func irCallback(code uint32, addr uint16, cmd uint8, repeat bool) {
-	switch cmd {
+func irCallback(data irremote.Data) {
+	// Ignore repeats
+	if data.Flags&irremote.DataFlagIsRepeat != 0 {
+		return
+	}
+	switch data.Command {
 	case 0x62:
 		// VOL+ button pressed. Go forwards one revolution
 		ch <- NUM_STEPS
@@ -55,10 +64,11 @@ func main() {
 	// Create a buffered channel of steps to move
 	ch = make(chan int32, 10)
 	// Register for IR callbacks
-	ir.Callback(irCallback)
+	ir.SetCommandHandler(irCallback)
 	for {
 		// Read a step count from the channel
 		steps := <-ch
+		// Move the stepper
 		stepper.Move(steps)
 		time.Sleep(time.Millisecond * 10)
 	}

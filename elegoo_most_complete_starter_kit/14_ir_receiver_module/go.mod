@@ -9,4 +9,4 @@ require (
 
 replace github.com/neildavis/tinygo_modules => ../../modules
 
-replace tinygo.org/x/drivers v0.19.0 => github.com/neildavis/drivers v0.19.1-0.20220221142459-2f58b6ba7994
+replace tinygo.org/x/drivers v0.19.0 => github.com/neildavis/drivers v0.19.1-0.20220324191050-33e730045560

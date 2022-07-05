@@ -1,6 +1,6 @@
 # Lesson 13: Analog Joystick Module #
 
-This example demonstrates use of the Pico's analog inputs (ADC) to read the position of an analog joystick.
+This example demonstrates use of the Pico's 'Analog-to-Digital Converter' (ADC) inputs to read the position of an analog joystick.
 
 ## Feedback ##
 

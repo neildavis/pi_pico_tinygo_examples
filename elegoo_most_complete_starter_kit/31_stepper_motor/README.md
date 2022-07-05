@@ -20,7 +20,7 @@ both approaches.
 
 ## Connections ##
 
-Just as with continous DC motors, **never** connect a stepper motor directly to the Pico's power
+Just as with continuous DC motors, **never** connect a stepper motor directly to the Pico's power
 supply. Instead we use the MB102 external power supply module to provide 5V DC to the ULN2003
 breakout board, and from there to the 28BJY-48 stepper motor. Just be sure to connect both power
 supply grounds as shown below.

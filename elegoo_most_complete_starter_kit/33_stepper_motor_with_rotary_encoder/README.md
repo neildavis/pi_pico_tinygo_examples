@@ -11,9 +11,7 @@ for the [ULN2003](https://www.ti.com/lit/ds/symlink/uln2003a.pdf) IC.
 
 ## Driver Support ##
 
-As in the previous example, we'll redirect the [TinyGo drivers](https://github.com/tinygo-org/drivers)
-module to use [my fork](https://github.com/neildavis/drivers) in `go.mod` until the driver in the
-upstream repository supports the 8-step mode operation that we require.
+As in the previous example, we'll use the [TinyGo drivers 'easystepper'](https://github.com/tinygo-org/drivers) driver to control the stepper motor.
 
 ## Connections ##
 

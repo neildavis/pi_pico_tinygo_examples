@@ -2,6 +2,9 @@
 
 An example showing how to generate a sound with an active buzzer.
 
-Connect the active buzzer +ve terminal to GP12 (physical pin 16)
+## Connections ##
 
-Connect the active buzzer -ve terminal to Ground (e.g. physical pin 18)
+| Pin (physical pin#) | Buzzer |
+|-|-|
+| GP12 (16) | + |
+| Ground (3,8,13,18,23,28,33,38) | - |

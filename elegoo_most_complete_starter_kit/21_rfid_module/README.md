@@ -2,7 +2,7 @@
 
 This example makes use of the RC522 RFID Reader Module. The RC522 is usually supplied as a kit
 and contains the [MFRC522](https://www.nxp.com/docs/en/data-sheet/MFRC522.pdf)
-from NXP semi-conductors boken out on a board inlcuding an antenna and SPI/I2C interface pins,
+from NXP semi-conductors boken out on a board including an antenna and SPI/I2C interface pins,
 as well as a 'fob' or card known as a '[Proximity IC Card](https://en.wikipedia.org/wiki/Proximity_card)'
 or PICC.
 

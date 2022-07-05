@@ -22,6 +22,8 @@ the PWM signal should be within the following range:
 |1.5| Middle|
 |2| Full Right|
 
+## Driver Support ##
+
 The [TinyGo Drivers](https://pkg.go.dev/tinygo.org/x/drivers) project already includes a driver for servos, so we'll
 use that.
 
@@ -31,8 +33,8 @@ If you're curious exactly how this works, inspect the [driver code](https://gith
 
 The servo has three wires and should be connected as follows:
 
-| Wire Colour | Purpose | Pin | Physical Pin #
-|-|-|-|-|
-| Brown | Ground | Ground | 3,8,13,18,23,28,33,35,38 |
-| Red | Vcc | 5v VBUS | 40|
-| Orange | Signal | GP 1 | 2|
+| Pin ( Physical Pin #)| Wire Colour | Purpose |
+|-|-|-|
+| Ground (3,8,13,18,23,28,33,35,38) | Brown | Ground |
+| 5v VBUS (40) | Red | Vcc |
+| GP 1 (2) | Orange | Signal |

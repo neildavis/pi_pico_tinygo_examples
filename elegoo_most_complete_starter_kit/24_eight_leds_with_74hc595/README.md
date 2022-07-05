@@ -1,6 +1,6 @@
 # Lesson 24: Eight LEDs with 74HC595 #
 
-This example demonstrates how to drive eight digital LED without the need to use eight output pins on the Pico.
+This example demonstrates how to drive eight digital LEDs without the need to use eight output pins on the Pico.
 Instead, it uses the [SN74HC595N](https://www.ti.com/lit/ds/symlink/sn74hc595.pdf)
 [shift register](https://en.wikipedia.org/wiki/Shift_register) IC supplied with the Elegoo kit.
 
@@ -26,7 +26,7 @@ of the driver, to show examples of both approaches.
 
 ## Connections ##
 
-Note: For brevity of this table I have not split the Resistors R0-R7 into separate columns
+Note: For brevity of this table I have not split the resistors R0-R7 into separate columns
 for the positive (+) and negative (-) terminals. The polarity doesn't matter anyway. Just be
 aware that the resistor *Rn* is **always** connected in ***series*** **between** the 74HC595 pin
 *Qn* and the LED *Ln*. (i.e) do **not connect in *parallel* directly beween *Qn* and *Ln***.

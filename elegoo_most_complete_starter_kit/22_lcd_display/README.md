@@ -32,7 +32,7 @@ impossible to read, so it's not a great option. The driver does include a 'write
 to keep the `RW` pin at ground and never read the `busy flag` from the device after writing instructions to it.
 However, I was unable to get this to work at all despite [extensive efforts](https://github.com/tinygo-org/drivers/issues/380). That leaves us with option 3. Unhelpfully neither of the datasheets for the LCM1602A module itself
 or the SPLC780D controller specify a *typical* voltage out for logic High (VOH). However the *minimum* VOH is
-speciifed as **2.4V** which is verly low for a 5V device, so it's *possible* (but by no means guaranteed) that the
+speciifed as **2.4V** which is very low for a 5V device, so it's *possible* (but by no means guaranteed) that the
 *typical* VOH could also be relatively low and within tolerance for the 3.3V Pico (VIH max ~= 3.6V)
 
 ### **DISCLAIMER** ###

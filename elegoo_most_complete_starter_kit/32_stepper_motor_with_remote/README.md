@@ -14,16 +14,17 @@ In contrast to the previous example, this time we'll use the
 driver provided by the [TinyGo drivers](https://github.com/tinygo-org/drivers) project to
 simplify our code.
 
-Interestingly, at the time of writing (TinyGo drivers v0.19.0) the driver uses only a
+Interestingly, at the time of writing (TinyGo drivers v0.19.0) the driver used only a
 [*4-step* model](https://github.com/tinygo-org/drivers/blob/v0.19.0/easystepper/easystepper.go#L121-L149)
-for stepping the motor, where two coils are always energised, whereas we previously used an *8-step*
-model, alternating between individual and pairs of coils energizing.
+for stepping the motor, where two coils are always energised (in the sequence 12-23-34-41),
+whereas we previously used an *8-step* model, alternating between individual and pairs of coils energizing
+(in the sequence 1-12-2-23-3-34-4-41).
 
-As it turns our, the 4-step model does not work with our 28BJY-48 & ULN2003!
-I've [reported](https://github.com/tinygo-org/drivers/issues/393) this as an issue, and submitted a
-[pull request](https://github.com/tinygo-org/drivers/pull/394) so hopefully this will be resolved soon.
-For now, we'll redirect the TinyGo drivers module to use [my fork](https://github.com/neildavis/drivers)
-in `go.mod` for this example.
+As it turns out, the 4-step model does not work with our 28BJY-48 & ULN2003!
+I [reported](https://github.com/tinygo-org/drivers/issues/393) this as an issue, and submitted a
+[pull request](https://github.com/tinygo-org/drivers/pull/394) to resolve it.
+Thankfully this PR has been merged and included in release
+[v0.21.0](https://github.com/tinygo-org/drivers/releases/tag/v0.21.0) of the drivers.
 
 ## Connections ##
 

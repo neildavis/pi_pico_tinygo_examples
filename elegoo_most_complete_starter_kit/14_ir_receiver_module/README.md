@@ -16,14 +16,11 @@ each distinct key press from the IR remote control handset.
 ## Driver support ##
 
 At the time of writing the [TinyGo drivers](https://github.com/tinygo-org/drivers) project
-does not include a driver for infra-red receivers like the AX-1838HS. I have written a
-minimal IR receiver driver in [my fork](https://github.com/neildavis/drivers/tree/irremote/irremote)
-of the drivers which implements the basic [NEC protocol](https://www.sbprojects.net/knowledge/ir/nec.php)
+did not include a driver for infra-red receivers like the AX-1838HS. So I wrote a
+minimal IR receiver driver which implements the basic [NEC protocol](https://www.sbprojects.net/knowledge/ir/nec.php)
 used by the Arduino IR handset.
 
-We use the [`replace` directive](https://go.dev/ref/mod#go-mod-file-replace) in our `go.mod` fille to
-substitute my fork for the `drivers` package. This way we don't need to modify our code if/when the
-driver is included, we simply remove the `replace` directive from `go.mod`
+Fortunately my [PR](https://github.com/tinygo-org/drivers/pull/383) has now been merged into release [v0.20.0](https://github.com/tinygo-org/drivers/releases/tag/v0.20.0) so we can now use it directly instead of redirecting to my fork.
 
 ## Connections ##
 

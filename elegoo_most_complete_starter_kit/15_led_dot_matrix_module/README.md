@@ -7,7 +7,7 @@ to scroll some text across the display.
 ## Voltage & Power Levels ##
 
 The LED Dot Matrix Module is designed for 5V use and can draw up to 2A. Some, but not
-all USB connections can provide for 2A.
+all USB connections can provide 2A.
 
 Using the formula P = VI, we can see that this means the module may use up to 10W power.
 Consequently, if we connect this to 3.3V then to maintain the power requirement, it may

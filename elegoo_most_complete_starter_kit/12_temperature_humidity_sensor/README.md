@@ -18,13 +18,13 @@ Unlike lesson 10 (HC-SR04 ultrasonic sensor) we cannot even use a voltage divide
 The voltage divider works in only one direction.
 
 A solution may be to use a bi-directional logic level converter between the Pico and the DHT11.
-Unfortunately, the Elegoo kit does not contain such a component, sothe connections shown below
+Unfortunately, the Elegoo kit does not contain such a component, so the connections shown below
 use 3.3V for both power & signalling.
 
 ## Feedback ##
 
 Again, the elegoo kit used the Arduino USB serial bus & monitor to simply print out the temperature & humidity
-readings received from the DHT11. Since this isn't availble 'out-of-the-box' with the pico, we have to be
+readings received from the DHT11. Since this isn't available 'out-of-the-box' with the pico, we have to be
 creative in how we communicate the readings.
 
 This project uses two RGB LEDs (you can use 3 single colour LEDs instead of either/both RGB LEDs if you wish)
@@ -36,6 +36,15 @@ Likewise if the temperature or humidity drop below a certain threshold the corre
 
 Try breathing on the sensor, which should cause both temperature and humidty to increase and turn the LEDs red.
 Alternatively try fanning the sensor to reduce its temperature and turn one LED blue.
+
+
+## Driver Support ##
+
+[TinyGo drivers](https://github.com/tinygo-org/drivers) already provides a
+[driver for the DHT11](https://github.com/tinygo-org/drivers/tree/release/dht)
+so we will make use of that to keep the code simpler. The internal workings of driving
+the DHT11 are not that complicated, so check out the code for the driver if you're
+curious to see how it works.
 
 ## Connections ##
 

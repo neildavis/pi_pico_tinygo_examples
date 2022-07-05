@@ -2,7 +2,9 @@
 
 This example demonstrates the use of a [HC-SR04](https://www.letscontrolit.com/wiki/index.php/HC-SR04) ultrasonic sensor module to measure distances.
 
-The HC-SR04 module provides a range of 2cm-400cm non-contact measurement, with an aaccuracy that can reach as low as 3mm
+The HC-SR04 module provides a range of 2cm-400cm non-contact measurement, with an accuracy that can reach as low as 3mm
+
+## Driver Support ##
 
 The [TinyGo Drivers](https://pkg.go.dev/tinygo.org/x/drivers) project already includes a driver for the HC-SR04, so we'll
 use that.
@@ -11,7 +13,7 @@ If you're curious how this works internally, check out the [HC-SR04 datasheet](h
 
 ## **IMPORTANT:** Voltage Levels ##
 
-As descibed in the [linked page](https://www.letscontrolit.com/wiki/index.php/HC-SR04) above, the HC-SR04 is designed for 5V circuits. The Pi Pico runs on 3.3V so cannot be used in the same congfiguration as e.g. with a 5V Arduino Uno. 
+As described in the [linked page](https://www.letscontrolit.com/wiki/index.php/HC-SR04) above, the HC-SR04 is designed for 5V circuits. The Pi Pico runs on 3.3V so cannot be used in the same congfiguration as e.g. with a 5V Arduino Uno.
 
 As with the Servo example (lesson 9) we can workaround this to some extent, by connecting the HC-SR04 VCC input to the Pico's 5V VBUS pin (physical pin #40). Signalling ***to*** the device's 'trigger' pin using 3.3V should still work fine. However, the device's 'echo' pin used to read the measured distance will use the same voltage as provided to VCC. Without additional circuitry, we have two options:
 
@@ -21,6 +23,7 @@ As with the Servo example (lesson 9) we can workaround this to some extent, by c
 Fortunately there is a simple solution using a minimal amount of extra circuitry - two resistors in series - to create a [voltage divider](https://learn.sparkfun.com/tutorials/voltage-dividers) which can lower the 5V from the HC-SR04's 'echo' pin to the 3.3V required by the Pico. I highly recommend you read this article and understand the concepts before assembling this project as I will **not** be responsible if you fry your pico board with 5V!
 
 ## Feedback ##
+
 The original Arduino based version of this lesson simply printed out the measured distance value via the serial bus which could be seen in the Arduino IDE serial monitor. However, this isn't possible on the Pico with a simple USB connection (by default the UART is connected to GPIO rather than USB CDC)
 
 Whilst there are solutions to this using e.g. another Pico as a 'Pico Probe', I decided to modify the example to drive an RGB LED colour based on the measured distance:
@@ -58,4 +61,4 @@ With the above in mind, here is how to connect the Pico, RGB LED and HC-SR04:
 | GP2 (4) | | Green |
 | GP4 (6) | | Blue |
 | GP14 (19) | Trig |
-| GP15 (20) | Echo (**via R1/R2 - 5.1K/10K - 5V -> 3.3V voltage divider**)| 
+| GP15 (20) | Echo (**via R1/R2 - 5.1K/10K - 5V -> 3.3V voltage divider**)|

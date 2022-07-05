@@ -4,6 +4,8 @@ This example demonstrates how to read a keypress from a membrane keypad
 like [this one](https://cdn.sparkfun.com/assets/f/f/a/5/0/DS-16038.pdf)
 supplied with the elegoo kit.
 
+## Driver Support ##
+
 The [TinyGo Drivers](https://pkg.go.dev/tinygo.org/x/drivers) project already
 includes a driver for this keypad so we'll use that.
 

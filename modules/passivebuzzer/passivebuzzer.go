@@ -34,7 +34,7 @@ func New(pin machine.Pin, pwm PWM) Device {
 // Configure device pins
 func (device *device) Configure() {
 	// Configure the passive buzzer for PWM output
-	device.pin.Configure(machine.PinConfig{Mode: machine.PinPWM})
+	device.pin.Configure(machine.PinConfig{Mode: machine.PinOutput})
 }
 
 // Frequency performs a 50% duty cycle PWM signal at the given frequency for the given duration

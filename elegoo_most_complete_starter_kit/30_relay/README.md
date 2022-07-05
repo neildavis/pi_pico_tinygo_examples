@@ -46,7 +46,7 @@ together as shown in the 'Connections' section below.
 
 ## Driver Support ##
 
-In contrast to the preious lesson (29: DC Motors), in this example we will use the
+In contrast to the previous lesson (29: DC Motors), in this example we will use the
 [L293D driver](https://github.com/tinygo-org/drivers/blob/release/l293x/l293x.go) from the
 [TinyGo drivers](https://github.com/tinygo-org/drivers) project.
 

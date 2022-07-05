@@ -10,7 +10,7 @@ as the 'trigger selection' jumper to see how the sensor behaviour changes.
 ## Connections ##
 
 The PIR is best powered from 5V, but its output is 3.3V so we don't need to worry about using
-voltage dividers or logic level converts before connecting it directly to our Pico's input pins.
+voltage dividers or logic level converters before connecting it directly to our Pico's input pins.
 
 | Pin (physical pin#) | HC-SR501 |
 |-|-|

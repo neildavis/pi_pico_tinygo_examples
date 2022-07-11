@@ -9,6 +9,8 @@ import (
 )
 
 var (
+	// LED
+	pinLED = machine.LED
 	// IR Receiver
 	pinIRIn = machine.GP3
 	ir      irremote.ReceiverDevice
@@ -23,6 +25,8 @@ var (
 )
 
 func setupPins() {
+	// LED
+	pinLED.Configure(machine.PinConfig{Mode: machine.PinOutput})
 	// Setup IR receiver
 	ir = irremote.NewReceiver(pinIRIn)
 	ir.Configure()
@@ -36,6 +40,13 @@ func irCallback(data irremote.Data) {
 	ch <- data.Command
 }
 
+// Blink the LED
+func blinkLED() {
+	pinLED.High()
+	time.Sleep(time.Millisecond * 10)
+	pinLED.Low()
+}
+
 func main() {
 	setupPins()
 	// Create a buffered channel of notes to play
@@ -45,6 +56,7 @@ func main() {
 	for {
 		// Read a note from the channel and play it on the buzzer
 		cmd := <-ch
+		blinkLED()
 		note := irCmdButtons[cmd]
 		if note != passivebuzzer.NOTE_NONE {
 			buzzer.Note(note, duration)
